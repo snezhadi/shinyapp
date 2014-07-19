@@ -1,0 +1,43 @@
+Shiny Application 
+========================================================
+author: Sayyed Nezhadi
+date: July 2014
+
+
+Interactive Binomial Distribution
+========================================================
+- This is a simple application ([here](https://snezhadi.shinyapps.io/shinyapp/)), developed using RStudio's Shiny, that allows users to plot Binomial distribution interactively by changing some parameters. 
+- The applications allows the following input parameters to be changed: **Trial Size (n)**, **Sucess Probablity (p)**, **Plot Type (Line, Point or Bar)**, and **Plot Color (Red, Blue or Black)**.
+
+![Shiny Application](shinyapp.png)
+
+
+Sample Outputs 
+========================================================
+
+![First Sample](sample1.png)
+
+![Second Sample](sample2.png)
+
+
+Calculation of Binomial Distribution
+========================================================
+
+The application uses **dbinom** to calculate the distribution. Below shows how **dbinom** is used for sample ***n*** and ***p***:
+
+```{r}
+n <- 15; p <- 0.3
+dbinom(1:n, n, p)
+```
+
+Plot of Binomial Distribution
+========================================================
+
+The application uses **plot** function to plot the distribution. Below shows how **plot** is used for sample ***n***, ***p***, ***type***, and ***color***:
+
+```{r}
+n<-15; p<-0.3; x<-1:n; d<-dbinom(x, n, p)
+type <- 'l'; color <- 'red'
+plot(x, d, type=type, col=color, lwd=2)
+```
+
